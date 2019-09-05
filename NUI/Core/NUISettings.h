@@ -27,8 +27,8 @@
 @property(nonatomic,retain)NSString* stylesheetOrientation;
 
 + (void)init;
-+ (void)initWithStylesheet:(NSString*)name;
-+ (void)appendStylesheet:(NSString*)name;
++ (void)initWithStylesheet:(NSString*)CERName;
++ (void)appendStylesheet:(NSString*)CERName;
 + (void)loadStylesheetByPath:(NSString*)path;
 + (BOOL)reloadStylesheetsOnOrientationChange:(UIInterfaceOrientation)orientation;
 + (BOOL)autoUpdateIsEnabled;

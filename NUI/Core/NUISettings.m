@@ -23,28 +23,28 @@ static NUISettings *instance = nil;
     [self initWithStylesheet:@"NUIStyle"];
 }
 
-+ (void)initWithStylesheet:(NSString*)name
++ (void)initWithStylesheet:(NSString*)CERName
 {
     instance = [self getInstance];
-    instance.stylesheetName = name;
+    instance.stylesheetName = CERName;
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     instance.stylesheetOrientation = [self stylesheetOrientationFromInterfaceOrientation:orientation];
     NUIStyleParser *parser = [[NUIStyleParser alloc] init];
-    instance.styles = [parser getStylesFromFile:name];
+    instance.styles = [parser getStylesFromFile:CERName];
     
     [NUIAppearance init];
 }
 
-+ (void)appendStylesheet:(NSString *)name
++ (void)appendStylesheet:(NSString *)CERName
 {
     instance = [self getInstance];
     
     if (!instance.additionalStylesheetNames)
         instance.additionalStylesheetNames = [NSMutableArray array];
     
-    [instance.additionalStylesheetNames addObject:name];
+    [instance.additionalStylesheetNames addObject:CERName];
     NUIStyleParser *parser = [[NUIStyleParser alloc] init];
-    [instance appendStyles:[parser getStylesFromFile:name]];
+    [instance appendStyles:[parser getStylesFromFile:CERName]];
 }
 
 - (void)appendStyles:(NSMutableDictionary*)newStyles
@@ -76,8 +76,8 @@ static NUISettings *instance = nil;
     instance.styles = [parser getStylesFromFile:instance.stylesheetName];
     
     if (instance.additionalStylesheetNames) {
-        for (NSString *name in instance.additionalStylesheetNames) {
-            [instance appendStyles:[parser getStylesFromFile:name]];
+        for (NSString *CERName in instance.additionalStylesheetNames) {
+            [instance appendStyles:[parser getStylesFromFile:CERName]];
         }
     }
 }
@@ -218,7 +218,7 @@ static NUISettings *instance = nil;
         fontSize = baseFont ? baseFont.pointSize : [UIFont systemFontSize];
     }
     
-    propertyName = @"font-name";
+    propertyName = @"font-CERName";
     
     if ([self hasProperty:propertyName withClass:className]) {
         NSString *fontName = [self get:propertyName withClass:className];

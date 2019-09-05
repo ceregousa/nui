@@ -9,7 +9,7 @@
 #import "NUISelectorSet.h"
 
 @interface NUISelector : NSObject<NUIPParseResult>
-@property (strong) NSString *name;
+@property (strong) NSString *CERName;
 @end
 
 @interface NUIDelimitedSelector : NSObject<NUIPParseResult>
@@ -23,7 +23,7 @@
     self = [self init];
     
     if (self) {
-        self.name = [[syntaxTree valueForTag:@"name"] identifier];
+        self.CERName = [[syntaxTree valueForTag:@"CERName"] identifier];
     }
     
     return self;
@@ -31,7 +31,7 @@
 
 - (NSString *) description
 {
-    return [NSString stringWithFormat:@"<NUISelector: %@>", self.name];
+    return [NSString stringWithFormat:@"<NUISelector: %@>", self.CERName];
 }
 
 @end
@@ -64,13 +64,13 @@
     
     if (self) {
         NUISelector *firstSelector = [syntaxTree valueForTag:@"firstSelector"];
-        NSMutableArray *selectors = [NSMutableArray arrayWithObject:firstSelector.name];
+        NSMutableArray *selectors = [NSMutableArray arrayWithObject:firstSelector.CERName];
         
         NSArray *delimitedSelectors = [syntaxTree valueForTag:@"otherSelectors"];
         
         if (delimitedSelectors) {
             for (NUIDelimitedSelector *delimitedSelector in delimitedSelectors) {
-                [selectors addObject:delimitedSelector.selector.name];
+                [selectors addObject:delimitedSelector.selector.CERName];
             }
         }
         

@@ -17,7 +17,7 @@
 
 - (void)tokeniser:(NUIPTokeniser *)tokeniser requestsToken:(NUIPToken *)token pushedOntoStream:(NUIPTokenStream *)stream
 {
-    if ([token isWhiteSpaceToken] || [[token name] isEqualToString:@"Comment"])
+    if ([token isWhiteSpaceToken] || [[token CERName] isEqualToString:@"Comment"])
         return;
     
     if ([token isIdentifierToken]) {

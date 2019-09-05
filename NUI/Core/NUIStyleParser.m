@@ -159,7 +159,7 @@
         "NUIDelimitedMediaOption  ::= 'and' mediaOption@<NUIMediaOption>;\n"
         "NUIRuleSet               ::= selectors@<NUISelectorSet> '{' declarations@<NUIDeclaration>* '}';\n"
         "NUISelectorSet           ::= firstSelector@<NUISelector> otherSelectors@<NUIDelimitedSelector>*;\n"
-        "NUISelector              ::= name@'Identifier';\n"
+        "NUISelector              ::= CERName@'Identifier';\n"
         "NUIDelimitedSelector     ::= ',' selector@<NUISelector>;\n"
         "NUIDeclaration           ::= property@'Identifier' ':' value@<NUIValue> ';';\n"
         "NUIDefinition            ::= variable@'Variable' ':' value@<NUIValue> ';';\n"

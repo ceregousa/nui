@@ -9,7 +9,7 @@
 
 @implementation NUIVariableToken
 
-- (NSString *)name
+- (NSString *)CERName
 {
     return @"Variable";
 }
