@@ -218,7 +218,7 @@ static NUISettings *instance = nil;
         fontSize = baseFont ? baseFont.pointSize : [UIFont systemFontSize];
     }
     
-    propertyName = @"font-CERName";
+    propertyName = @"font-name";
     
     if ([self hasProperty:propertyName withClass:className]) {
         NSString *fontName = [self get:propertyName withClass:className];
